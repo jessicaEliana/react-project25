@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */
+}
+
+.menuOp {
+    height: 20px;
+    margin: 5px;
+}
+
+.contenedor2 {
+    display: flex;
+    gap: 20px;
+    height: 30px;
+    /* border: 1px solid pink; */
+    margin-left: 50px;
+
+    align-items: center;
+}
+
+.searchBar {
+    margin-left: 50px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    background-color: black;
+    width: 250px;
+    height: 30px;
+}
+
+.contenedor1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    /* border: 1px solid purple; */
+    align-items: center;
+    max-width: 90%;
+    overflow-y: hidden;
+}
+
+.userFoto {
+    
+    height: 40px;
+    margin-right: 10px;
+}

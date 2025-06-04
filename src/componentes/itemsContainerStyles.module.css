@@ -1,0 +1,31 @@
+.contenedor {
+    /* border: 1px solid burlywood; */
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 95vw;
+    margin: auto;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    
+}
+
+    /* border: 1px solid burlywood;
+    padding: 8px;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    width: 100%; */
+    
+
+
+.item {
+    /* border: 1px solid brown; */
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    max-width: 100vw;
+    overflow-x: auto;
+    box-sizing: border-box;
+}

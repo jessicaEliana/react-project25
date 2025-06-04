@@ -1,0 +1,36 @@
+.fondo {
+    min-width: 200px; /* o lo que quieras que mida la tarjeta */
+    flex: 0 0 auto;   /* importante: que no crezca más de la cuenta */
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+
+    /* background-color: rgb(0, 0, 0, 0.5);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; */
+}
+
+.imagen {
+    margin-right: 10px;
+    /* border: 1px solid pink; */
+    
+}
+
+.scroll-horizontal {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
