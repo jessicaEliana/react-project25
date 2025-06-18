@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import mostRequested from "./componentes/MostRequestedData"
+import NavBar from "./componentes/NavBar";
+import FilterableList from "./componentes/FilterableList";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [likesCount, setLikesCount] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <NavBar 
+        searchTerm={searchTerm} 
+        setSearchTerm={setSearchTerm}
+        cartCount={likesCount}
+      />
+        
+      <FilterableList
+        data={mostRequested}
+        searchTerm={searchTerm}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+        likesCount={likesCount}
+        setLikesCount={setLikesCount}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;

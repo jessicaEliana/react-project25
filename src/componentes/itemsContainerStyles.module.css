@@ -1,0 +1,42 @@
+.contenedor {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.titulo {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.descripcion {
+  font-size: 1rem;
+  color: #cccccc;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 8px 0;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 8px 0;
+}
