@@ -10,7 +10,11 @@ type Props = {
   setSelectedCategory: (value: string) => void;
   likesCount: number;
   setLikesCount: (count: number) => void;
+  totalPrice: number;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+
 };
+
 
 function FilterableList({
   data,
@@ -19,6 +23,7 @@ function FilterableList({
   setSelectedCategory,
   likesCount,
   setLikesCount,
+  setTotalPrice,
 }: Props) {
   const filtered = data
     .filter(
@@ -59,13 +64,14 @@ function FilterableList({
           >
             {category.items.map((item) => (
               <ItemCard
-                key={item.id}
-                titulo={item.title}
-                descripcion={item.description}
-                precio={item.price}
-                src={item.src}
-                currentLikes={likesCount}
-                setLikesCount={setLikesCount}
+                  key={item.id}
+                  titulo={item.title}
+                  descripcion={item.description}
+                  precio={item.price}
+                  src={item.src}
+                  currentLikes={likesCount}
+                  setLikesCount={setLikesCount}
+                  setTotalPrice={setTotalPrice}
               />
             ))}
           </ItemsContainer>

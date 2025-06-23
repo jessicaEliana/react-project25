@@ -8,10 +8,11 @@ type Props = {
   searchTerm: string;
   setSearchTerm: (value: string) => void;
   cartCount: number;
+  totalPrice: number;
 };
 
 
-function NavBar({ searchTerm, setSearchTerm, cartCount }: Props) {
+function NavBar({ searchTerm, setSearchTerm, cartCount, totalPrice }: Props) {
   return (
     <header className={Styles.navbar}>
       <div className={Styles.left}>
@@ -30,6 +31,10 @@ function NavBar({ searchTerm, setSearchTerm, cartCount }: Props) {
       </div>
 
       <div className={Styles.right}>
+        <div className={Styles.totalBox}>
+          <span>Total:</span>
+          <span className={Styles.totalPrice}>${totalPrice.toFixed(2)}</span>
+        </div>
         <div className={Styles.cartIcon}>
           <FontAwesomeIcon icon={faShoppingCart} />
           {cartCount > 0 && <span className={Styles.badge}>{cartCount}</span>}

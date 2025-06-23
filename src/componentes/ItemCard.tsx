@@ -8,13 +8,18 @@ type Props = {
   src: string;
   currentLikes: number;
   setLikesCount: (count: number) => void;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+
 };
 
-function ItemCard({ titulo, descripcion, precio, src, currentLikes, setLikesCount }: Props) {
+function ItemCard({ titulo, descripcion, precio, src, currentLikes, setLikesCount, setTotalPrice }: Props) {
   const [added, setAdded] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
   const handleAgregar = () => {
+    if (precio !== undefined) {
+    setTotalPrice((prev) => prev + precio);
+    }
     setAdded(true);
     setLikesCount(currentLikes + 1);
     setShowMessage(true);
@@ -22,6 +27,9 @@ function ItemCard({ titulo, descripcion, precio, src, currentLikes, setLikesCoun
   };
 
   const handleQuitar = () => {
+    if (precio !== undefined) {
+    setTotalPrice((prev) => prev - precio);
+    }
     setAdded(false);
     setLikesCount(currentLikes - 1);
   };

@@ -135,4 +135,19 @@ body {
   gap: 12px; /* espacio entre el carrito y la imagen */
 }
 
+.totalBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #ffffff20; 
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.totalPrice {
+  color: #00ff88; 
+  font-size: 1.1rem;
+}
 
