@@ -12,7 +12,8 @@ type Props = {
   setLikesCount: (count: number) => void;
   totalPrice: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
-
+  selectedItems: number[];
+  setSelectedItems: React.Dispatch<React.SetStateAction<number[]>>;
 };
 
 
@@ -23,7 +24,10 @@ function FilterableList({
   setSelectedCategory,
   likesCount,
   setLikesCount,
+  totalPrice,
   setTotalPrice,
+  selectedItems,
+  setSelectedItems,
 }: Props) {
   const filtered = data
     .filter(
@@ -55,30 +59,54 @@ function FilterableList({
         </select>
       </div>
 
-      {filtered.length > 0 ? (
-        filtered.map((category) => (
-          <ItemsContainer
-            key={category.categoryId}
-            titulo={category.cateoryTitle}
-            descripcion={category.categoryDescription}
-          >
-            {category.items.map((item) => (
-              <ItemCard
-                  key={item.id}
-                  titulo={item.title}
-                  descripcion={item.description}
-                  precio={item.price}
-                  src={item.src}
-                  currentLikes={likesCount}
-                  setLikesCount={setLikesCount}
-                  setTotalPrice={setTotalPrice}
-              />
-            ))}
-          </ItemsContainer>
-        ))
-      ) : (
-        <p className={styles.noResults}>No se encontraron resultados.</p>
-      )}
+      {searchTerm.trim() === "" ? (
+  // Modo por categorías (sin búsqueda)
+  filtered.map((category) => (
+    <ItemsContainer
+      key={category.categoryId}
+      titulo={category.cateoryTitle}
+      descripcion={category.categoryDescription}
+    >
+      {category.items.map((item) => (
+        <ItemCard
+          key={item.id}
+          itemId={item.id}
+          titulo={item.title}
+          descripcion={item.description}
+          precio={item.price}
+          src={item.src}
+          currentLikes={likesCount}
+          setLikesCount={setLikesCount}
+          totalPrice={totalPrice}
+          setTotalPrice={setTotalPrice}
+          selectedItems={selectedItems}
+          setSelectedItems={setSelectedItems}
+        />
+      ))}
+    </ItemsContainer>
+  ))
+) : (
+  // Modo búsqueda: todos juntos
+  <ItemsContainer titulo="Resultados" descripcion="">
+    {filtered.flatMap((category) => category.items).map((item) => (
+      <ItemCard
+        key={item.id}
+        itemId={item.id}
+        titulo={item.title}
+        descripcion={item.description}
+        precio={item.price}
+        src={item.src}
+        currentLikes={likesCount}
+        setLikesCount={setLikesCount}
+        totalPrice={totalPrice}
+        setTotalPrice={setTotalPrice}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
+    ))}
+  </ItemsContainer>
+)}
+
     </div>
   );
 }

@@ -8,6 +8,8 @@ function App() {
   const [likesCount, setLikesCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+
 
   return (
     <div>
@@ -27,6 +29,8 @@ function App() {
         setLikesCount={setLikesCount}
         totalPrice={totalPrice} 
         setTotalPrice={setTotalPrice}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
       />
     </div>
   );
